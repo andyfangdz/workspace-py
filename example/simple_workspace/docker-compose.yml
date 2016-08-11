@@ -1,0 +1,8 @@
+ssh:
+  image: rastasheep/ubuntu-sshd:14.04
+  command: sh -c "echo 'root:${SSH_PASSWORD}' | chpasswd && /usr/sbin/sshd -D"
+  volumes:
+    - "${HOME_DIR}:/root"
+  ports:
+    - "${SSH_PORT}:22"
+    - "${WEB_PORT}:8080"
