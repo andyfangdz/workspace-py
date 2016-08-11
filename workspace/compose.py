@@ -23,6 +23,12 @@ def pick_port():
 
 def call_compose(path, command, env=None):
     my_env = os.environ.copy()
+    env = env or {
+        "SSH_PORT": "22",
+        "WEB_PORT": "80",
+        "SSH_PASSWORD": "root",
+        "HOME_DIR": "/root"
+    }
     my_env.update(env)
     subprocess.Popen(['docker-compose', '-f', path] + command, env=my_env)
 
@@ -81,3 +87,6 @@ class Workspace:
     def down(self):
         call_compose(self.path, ['down'], env=self.env)
 
+
+def down(path):
+    call_compose(path, ['down'])
