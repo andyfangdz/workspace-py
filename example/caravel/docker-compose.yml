@@ -1,5 +1,4 @@
 caravel:
   image: kochalex/caravel
-  command: runserver
   ports:
     - "${WEB_PORT}:8088"

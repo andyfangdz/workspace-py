@@ -1,0 +1,4 @@
+ghost:
+  image: ghost
+  ports:
+    - "${WEB_PORT}:2368"

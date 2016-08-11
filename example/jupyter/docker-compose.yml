@@ -1,0 +1,4 @@
+jupyter:
+  image: jupyter/minimal-notebook
+  ports:
+    - "${WEB_PORT}:8888"
